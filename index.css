@@ -163,19 +163,19 @@ body {
 
 .y-axis-label {
     transform: rotate(-90deg);
-    left: -60px;
+    left: -85px;  /* Pushed further out to avoid overlaying numbers */
     top: 50%;
 }
 
 .x-axis-label {
-    bottom: -45px;
+    bottom: -60px; /* Pushed down because numbers are closer now */
     left: 50%;
     transform: translateX(-50%);
 }
 
 .axis-values-y {
     position: absolute;
-    left: -20px;
+    left: -12px;  /* Pulled closer to the grid */
     height: var(--chart-height);
     display: flex;
     flex-direction: column-reverse;
@@ -189,7 +189,7 @@ body {
 
 .axis-values-x {
     position: absolute;
-    bottom: -22px;
+    bottom: -15px; /* Pulled closer to the grid */
     width: var(--chart-width);
     display: flex;
     justify-content: space-between;

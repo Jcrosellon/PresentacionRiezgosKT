@@ -38,6 +38,11 @@ function getSeededRandom(seed) {
     return x - Math.floor(x);
 }
 
+function formatProcessName(name) {
+    if (name.toUpperCase() === "TI") return "TI";
+    return name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
+}
+
 function renderPoints(data) {
     container.innerHTML = '';
     allPoints = [];
@@ -69,7 +74,7 @@ function renderPoints(data) {
         // Label
         const label = document.createElement('div');
         label.className = 'point-label';
-        label.innerText = p.PROCESO;
+        label.innerText = formatProcessName(p.PROCESO);
         label.style.left = `${x + 22}px`;
         label.style.bottom = `${y - 8}px`;
 
