@@ -11,7 +11,7 @@ def analyze_risk():
     all_raw = []
     
     try:
-        df = pd.read_excel(excel_file, sheet_name=0)  # Hoja 1
+        df = pd.read_excel(excel_file, sheet_name="Consolidado (2)")
         df.columns = [str(c).strip().upper() for c in df.columns]
         
         # Buscar columna "Sub proceso" primero, luego fallback a "Proceso"
