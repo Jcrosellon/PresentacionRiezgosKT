@@ -173,7 +173,7 @@ body {
 }
 
 .x-axis-label {
-    bottom: -60px; /* Pushed down because numbers are closer now */
+    bottom: -45px; /* Raised closer to the numbers */
     left: 50%;
     transform: translateX(-50%);
 }
