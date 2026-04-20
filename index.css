@@ -3,8 +3,8 @@
     --card-bg: rgba(255, 255, 255, 0.9);
     --text-primary: #0f172a;
     --text-secondary: #475569;
-    --critical: #ef4444;
-    --alert: #f59e0b;
+    --critical: #dc2626;
+    --alert: #eab308;
     --low: #22c55e;
     --chart-width: 600px;
     --chart-height: 450px;
@@ -86,9 +86,9 @@ body {
     box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
 }
 
-.summary-card.critical { background: #fca5a5; color: #7f1d1d; }
-.summary-card.alert { background: #fef08a; color: #854d0e; }
-.summary-card.low { background: #bbf7d0; color: #14532d; }
+.summary-card.critical { background: var(--critical); color: white; }
+.summary-card.alert { background: var(--alert); color: white; }
+.summary-card.low { background: var(--low); color: white; }
 .summary-card.all { background: #e2e8f0; color: #1e293b; }
 
 .card-title { font-weight: 800; font-size: 0.7rem; text-transform: uppercase; }
@@ -226,6 +226,10 @@ body {
     cursor: pointer;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+.risk-point.critical { background-color: var(--critical); }
+.risk-point.alert { background-color: var(--alert); }
+.risk-point.low { background-color: var(--low); }
 
 .risk-point:hover {
     transform: translate(-50%, 50%) scale(1.4);
