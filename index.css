@@ -6,12 +6,13 @@
     --critical: #ef4444;
     --alert: #f59e0b;
     --low: #22c55e;
-    --chart-size: 600px;
+    --chart-width: 600px;
+    --chart-height: 450px;
 }
 
 body {
     margin: 0;
-    padding: 1rem;
+    padding: 0.5rem;
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
     background: radial-gradient(circle at top left, #e2e8f0 0%, #cbd5e1 100%);
     color: var(--text-primary);
@@ -129,15 +130,16 @@ body {
 /* Heatmap Grid */
 .heatmap-wrapper {
     position: relative;
-    padding: 20px 40px 60px 60px;
+    padding: 10px 20px 50px 50px;
+    margin-bottom: 2rem;
 }
 
 .heatmap-grid {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: repeat(5, 1fr);
-    width: var(--chart-size);
-    height: var(--chart-size);
+    width: var(--chart-width);
+    height: var(--chart-height);
     border: 2px solid #0f172a;
     position: relative;
     background: linear-gradient(45deg, #bbf7d0 0%, #fef08a 40%, #fdba74 60%, #fca5a5 100%);
@@ -155,25 +157,25 @@ body {
     color: var(--text-primary);
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    font-size: 1.1rem;
+    font-size: 1rem;
 }
 
 .y-axis-label {
     transform: rotate(-90deg);
-    left: -70px;
+    left: -60px;
     top: 50%;
 }
 
 .x-axis-label {
-    bottom: -70px;
+    bottom: -45px;
     left: 50%;
     transform: translateX(-50%);
 }
 
 .axis-values-y {
     position: absolute;
-    left: -30px;
-    height: var(--chart-size);
+    left: -20px;
+    height: var(--chart-height);
     display: flex;
     flex-direction: column-reverse;
     justify-content: space-between;
@@ -181,20 +183,20 @@ body {
     margin: 0;
     list-style: none;
     font-weight: 700;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
 }
 
 .axis-values-x {
     position: absolute;
-    bottom: -35px;
-    width: var(--chart-size);
+    bottom: -22px;
+    width: var(--chart-width);
     display: flex;
     justify-content: space-between;
     padding: 0;
     margin: 0;
     list-style: none;
     font-weight: 700;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     text-align: center;
 }
 
@@ -206,8 +208,8 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    width: var(--chart-size);
-    height: var(--chart-size);
+    width: var(--chart-width);
+    height: var(--chart-height);
     pointer-events: none;
 }
 

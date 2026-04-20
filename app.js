@@ -1,7 +1,8 @@
-const GRID_SIZE = 600; 
-const POINT_RADIUS = 12; 
-const LABEL_HEIGHT = 16;
-const PADDING = 30; 
+const GRID_WIDTH = 600; 
+const GRID_HEIGHT = 450;
+const POINT_RADIUS = 10; 
+const LABEL_HEIGHT = 14;
+const PADDING = 25; 
 
 const container = document.getElementById('points-container');
 const tooltip = document.getElementById('tooltip');
@@ -30,16 +31,13 @@ function renderPoints(data) {
     container.innerHTML = '';
     allPoints = [];
 
-    // Collision avoidance data
-    const placedPositions = [];
-
     data.forEach((p, index) => {
         const score = p.impact_val * p.prob_val;
         const category = getRiskCategory(score);
         
-        // Map 1-5 to 0-GRID_SIZE pixels
-        let x = (p.prob_val - 1) / 4 * (GRID_SIZE - 2 * PADDING) + PADDING;
-        let y = (p.impact_val - 1) / 4 * (GRID_SIZE - 2 * PADDING) + PADDING;
+        // Map 1-5 to GRID dimensions
+        let x = (p.prob_val - 1) / 4 * (GRID_WIDTH - 2 * PADDING) + PADDING;
+        let y = (p.impact_val - 1) / 4 * (GRID_HEIGHT - 2 * PADDING) + PADDING;
 
         // Apply Jitter to avoid exact overlaps
         const jitterX = (Math.random() - 0.5) * 40;
