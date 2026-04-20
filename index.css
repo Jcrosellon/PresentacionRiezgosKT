@@ -150,7 +150,7 @@ body {
 /* Heatmap Grid */
 .heatmap-wrapper {
     position: relative;
-    padding: 10px 20px 45px 60px;
+    padding: 10px 20px 65px 70px;
     margin-bottom: 0;
 }
 
@@ -182,21 +182,21 @@ body {
 
 .y-axis-label {
     transform: rotate(-90deg);
-    left: -85px;  /* Pushed further out to avoid overlaying numbers */
+    left: -60px;  /* Pushed further out to avoid overlaying numbers */
     top: 50%;
 }
 
 .x-axis-label {
-    bottom: 0px; /* Snug against the bottom inside edge of the wrapper padding */
+    bottom: 5px; /* Anchors solidly inside the 65px padding reservation */
     left: 50%;
     transform: translateX(-50%);
 }
 
 .axis-values-y {
     position: absolute;
-    left: -12px;  /* Pulled closer to the grid */
-    height: var(--chart-height);
-    display: flex;
+    left: -20px;  /* Pulled closer to the grid */
+    height: 100%;
+    top: 0;    display: flex;
     flex-direction: column-reverse;
     justify-content: space-between;
     padding: 0;
@@ -208,8 +208,10 @@ body {
 
 .axis-values-x {
     position: absolute;
-    bottom: -15px; /* Pulled closer to the grid */
-    width: var(--chart-width);
+    top: 100%; /* Anchor right below the grid */
+    left: 0;
+    margin-top: 5px; 
+    width: 100%;
     display: flex;
     justify-content: space-between;
     padding: 0;
