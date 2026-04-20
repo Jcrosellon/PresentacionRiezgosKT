@@ -1,0 +1,62 @@
+[
+  {
+    "PROCESO": "Servicios estratégicos y convenios",
+    "impact_val": 4.5,
+    "prob_val": 5.0,
+    "Hallazgo": 19
+  },
+  {
+    "PROCESO": "Cirugía",
+    "impact_val": 4.5,
+    "prob_val": 4.93,
+    "Hallazgo": 18
+  },
+  {
+    "PROCESO": "Talento Humano",
+    "impact_val": 4.5,
+    "prob_val": 4.59,
+    "Hallazgo": 14
+  },
+  {
+    "PROCESO": "Gestión Documental",
+    "impact_val": 2.5,
+    "prob_val": 2.49,
+    "Hallazgo": 3
+  },
+  {
+    "PROCESO": "Inventarios",
+    "impact_val": 2.5,
+    "prob_val": 3.43,
+    "Hallazgo": 6
+  },
+  {
+    "PROCESO": "SERVICIO AL USUARIO",
+    "impact_val": 2.5,
+    "prob_val": 3.19,
+    "Hallazgo": 5
+  },
+  {
+    "PROCESO": "Administrativo y Financiero",
+    "impact_val": 4.5,
+    "prob_val": 4.38,
+    "Hallazgo": 12
+  },
+  {
+    "PROCESO": "GERENCIA VENTAS",
+    "impact_val": 4.5,
+    "prob_val": 3.64,
+    "Hallazgo": 7
+  },
+  {
+    "PROCESO": "TI",
+    "impact_val": 4.5,
+    "prob_val": 3.82,
+    "Hallazgo": 8
+  },
+  {
+    "PROCESO": "Tesorería",
+    "impact_val": 4.5,
+    "prob_val": 3.43,
+    "Hallazgo": 6
+  }
+]

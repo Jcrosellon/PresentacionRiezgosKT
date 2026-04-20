@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matriz de Calor de Riesgos - Comité de Auditoría</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Matriz de Calor de Riesgos</h1>
+            <p>Comité de Auditoría - Distribución de Criticidad y Hallazgos</p>
+        </header>
+
+        <section class="summary-cards">
+            <button class="summary-card critical" data-filter="high">
+                <span class="card-title">Zona Crítica</span>
+                <span class="card-desc">Acción prioritaria urgente</span>
+            </button>
+            <button class="summary-card alert" data-filter="med">
+                <span class="card-title">Zonas de Alerta</span>
+                <span class="card-desc">Seguimiento y control</span>
+            </button>
+            <button class="summary-card low" data-filter="low">
+                <span class="card-title">Zona Bajo</span>
+                <span class="card-desc">Monitoreo</span>
+            </button>
+        </section>
+
+        <main class="main-content">
+            <section class="legend-compact">
+                <div class="risk-legend-item">
+                    <span class="dot critical"></span>
+                    <span><b>Riesgo Alto:</b> Score 20-25</span>
+                </div>
+                <div class="risk-legend-item">
+                    <span class="dot alert"></span>
+                    <span><b>Riesgo Moderado:</b> Score 10-19</span>
+                </div>
+                <div class="risk-legend-item">
+                    <span class="dot low"></span>
+                    <span><b>Riesgo Bajo:</b> Score 1-9</span>
+                </div>
+            </section>
+
+            <section class="heatmap-wrapper">
+                <div class="y-axis-label axis-label">Impacto</div>
+                <ul class="axis-values-y" id="y-axis">
+                    <li>1<br><span class="axis-subtext">Baja</span></li>
+                    <li>2</li>
+                    <li>3</li>
+                    <li>4</li>
+                    <li>5</li>
+                </ul>
+
+                <div class="heatmap-grid" id="grid">
+                    <div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div>
+                    <div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div>
+                    <div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div>
+                    <div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div>
+                    <div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div>
+                    
+                    <div class="points-overlay" id="points-container">
+                        <!-- Points will be injected here -->
+                    </div>
+                </div>
+
+                <ul class="axis-values-x" id="x-axis">
+                    <li>1<br><span class="axis-subtext">Raro</span></li>
+                    <li>2<br><span class="axis-subtext">Poco frecuente</span></li>
+                    <li>3<br><span class="axis-subtext">Moderado</span></li>
+                    <li>4<br><span class="axis-subtext">Frecuente</span></li>
+                    <li>5<br><span class="axis-subtext">Muy frecuente</span></li>
+                </ul>
+                <div class="x-axis-label axis-label">Probabilidad</div>
+            </section>
+        </main>
+    </div>
+
+    <div id="tooltip">
+        <span class="tooltip-title" id="tt-title">Proceso</span>
+        <div class="tooltip-stat">Impacto: <b id="tt-impact">0</b></div>
+        <div class="tooltip-stat">Probabilidad: <b id="tt-prob">0</b></div>
+        <div class="tooltip-stat">Hallazgos: <b id="tt-findings">0</b></div>
+        <div class="tooltip-stat" style="margin-top: 0.5rem; border-top: 1px solid #eee; padding-top: 0.5rem;">Score: <b id="tt-score">0</b></div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

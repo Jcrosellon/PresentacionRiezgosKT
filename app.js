@@ -1,0 +1,123 @@
+const GRID_SIZE = 800; 
+const POINT_RADIUS = 14; 
+const LABEL_HEIGHT = 20;
+const PADDING = 40; 
+
+const container = document.getElementById('points-container');
+const tooltip = document.getElementById('tooltip');
+
+let currentFilter = null;
+let allPoints = [];
+
+async function init() {
+    try {
+        const response = await fetch('data.json');
+        const data = await response.json();
+        renderPoints(data);
+        setupFilters();
+    } catch (err) {
+        console.error("Error loading data:", err);
+    }
+}
+
+function getRiskCategory(score) {
+    if (score >= 20) return 'high';
+    if (score >= 10) return 'med';
+    return 'low';
+}
+
+function renderPoints(data) {
+    container.innerHTML = '';
+    allPoints = [];
+
+    // Collision avoidance data
+    const placedPositions = [];
+
+    data.forEach((p, index) => {
+        const score = p.impact_val * p.prob_val;
+        const category = getRiskCategory(score);
+        
+        // Map 1-5 to 0-GRID_SIZE pixels
+        let x = (p.prob_val - 1) / 4 * (GRID_SIZE - 2 * PADDING) + PADDING;
+        let y = (p.impact_val - 1) / 4 * (GRID_SIZE - 2 * PADDING) + PADDING;
+
+        // Apply Jitter to avoid exact overlaps
+        const jitterX = (Math.random() - 0.5) * 40;
+        const jitterY = (Math.random() - 0.5) * 40;
+        x += jitterX;
+        y += jitterY;
+
+        // Visual point
+        const point = document.createElement('div');
+        point.className = `risk-point ${category === 'high' ? 'critical' : category === 'med' ? 'alert' : 'low'}`;
+        point.style.left = `${x}px`;
+        point.style.bottom = `${y}px`; // Uses bottom because y-axis starts from bottom
+
+        // Label
+        const label = document.createElement('div');
+        label.className = 'point-label';
+        label.innerText = p.PROCESO;
+        label.style.left = `${x + 15}px`;
+        label.style.bottom = `${y - 10}px`;
+
+        // Store for filtering
+        const pointObj = { el: point, labelEl: label, category, score };
+        allPoints.push(pointObj);
+
+        // Tooltip interaction
+        point.onmouseenter = (e) => {
+            tooltip.style.display = 'block';
+            document.getElementById('tt-title').innerText = p.PROCESO;
+            document.getElementById('tt-impact').innerText = p.impact_val;
+            document.getElementById('tt-prob').innerText = p.prob_val;
+            document.getElementById('tt-findings').innerText = p.Hallazgo;
+            document.getElementById('tt-score').innerText = score.toFixed(1);
+            updateTooltipPos(e);
+        };
+
+        point.onmousemove = (e) => updateTooltipPos(e);
+        point.onmouseleave = () => tooltip.style.display = 'none';
+
+        container.appendChild(point);
+        container.appendChild(label);
+    });
+}
+
+function updateTooltipPos(e) {
+    tooltip.style.left = `${e.clientX + 20}px`;
+    tooltip.style.top = `${e.clientY + 20}px`;
+}
+
+function setupFilters() {
+    const cards = document.querySelectorAll('.summary-card');
+    cards.forEach(card => {
+        card.onclick = () => {
+            const filter = card.getAttribute('data-filter');
+            
+            if (currentFilter === filter) {
+                // Reset filter if clicking the active one
+                currentFilter = null;
+                cards.forEach(c => c.classList.remove('active'));
+            } else {
+                currentFilter = filter;
+                cards.forEach(c => c.classList.remove('active'));
+                card.classList.add('active');
+            }
+
+            applyFilter();
+        };
+    });
+}
+
+function applyFilter() {
+    allPoints.forEach(p => {
+        if (!currentFilter || p.category === currentFilter) {
+            p.el.classList.remove('filtered');
+            // Labels are handled by CSS based on the .filtered class of the point
+        } else {
+            p.el.classList.add('filtered');
+        }
+    });
+}
+
+init();
