@@ -1,7 +1,7 @@
-const GRID_SIZE = 800; 
-const POINT_RADIUS = 14; 
-const LABEL_HEIGHT = 20;
-const PADDING = 40; 
+const GRID_SIZE = 600; 
+const POINT_RADIUS = 12; 
+const LABEL_HEIGHT = 16;
+const PADDING = 30; 
 
 const container = document.getElementById('points-container');
 const tooltip = document.getElementById('tooltip');
