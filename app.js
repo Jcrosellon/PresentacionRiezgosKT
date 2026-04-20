@@ -106,8 +106,8 @@ function setupFilters() {
         card.onclick = () => {
             const filter = card.getAttribute('data-filter');
             
-            if (currentFilter === filter) {
-                // Reset filter if clicking the active one
+            if (filter === 'all' || currentFilter === filter) {
+                // Reset filter if clicking 'all' or the same active filter
                 currentFilter = null;
                 cards.forEach(c => c.classList.remove('active'));
             } else {

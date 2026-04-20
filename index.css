@@ -53,9 +53,9 @@ body {
 /* Filter Summary Cards */
 .summary-cards {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
-    margin-bottom: 1.5rem;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.8rem;
+    margin-bottom: 1rem;
 }
 
 .summary-card {
@@ -89,9 +89,10 @@ body {
 .summary-card.critical { background: #fca5a5; color: #7f1d1d; }
 .summary-card.alert { background: #fef08a; color: #854d0e; }
 .summary-card.low { background: #bbf7d0; color: #14532d; }
+.summary-card.all { background: #e2e8f0; color: #1e293b; }
 
-.card-title { font-weight: 800; font-size: 0.75rem; text-transform: uppercase; }
-.card-desc { font-size: 0.65rem; opacity: 0.8; line-height: 1; }
+.card-title { font-weight: 800; font-size: 0.7rem; text-transform: uppercase; }
+.card-desc { font-size: 0.6rem; opacity: 0.8; line-height: 1; }
 
 /* Main Content Layout */
 .main-content {
