@@ -271,9 +271,93 @@ body {
 }
 
 .risk-point.filtered {
-    opacity: 0.1;
+    opacity: 0;
     pointer-events: none;
-    transform: translate(-50%, 50%) scale(0.5);
+    transition: opacity 0.2s, transform 0.2s;
+    transform: translate(-50%, -10px);
+}
+
+/* -------------------------------------
+   RESPONSIVE DESIGN (Mobiles & Tablets) 
+   -------------------------------------*/
+
+@media screen and (max-width: 850px) {
+    .summary-cards {
+        grid-template-columns: repeat(2, 1fr); /* Switch cards to a 2x2 grid */
+        max-width: 400px;
+        gap: 0.6rem;
+    }
+    
+    .legend-compact {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+        border-radius: 16px;
+    }
+    
+    .heatmap-wrapper {
+        margin-left: 50px; /* Reduce massive margin */
+    }
+    
+    .y-axis-label {
+        left: -55px;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    /* For true mobile phone screens, vertical scrolling is often necessary */
+    body {
+        height: auto;
+        overflow-y: auto;
+        display: block; /* Free from locked flex centering */
+        padding-bottom: 40px; /* Space for developer footer */
+    }
+    
+    .container {
+        height: auto;
+        max-height: none;
+        margin: 10px auto;
+        padding: 1.5rem 1rem;
+        width: 95vw;
+    }
+    
+    .main-content {
+        display: block; /* Let layout flow down naturally */
+    }
+    
+    .summary-cards {
+        grid-template-columns: 1fr; /* Fully stacked buttons on tiny screens */
+    }
+    
+    /* Shrink the text sizes of the grid so they fit */
+    .axis-values-x, .axis-values-y {
+        font-size: 0.75rem;
+    }
+    .axis-subtext {
+        font-size: 0.65rem;
+    }
+    
+    .heatmap-wrapper {
+        margin-bottom: 60px; /* Tighter lower fit */
+    }
+    
+    .x-axis-label {
+        bottom: -50px;
+    }
+    
+    .axis-values-x {
+        bottom: -25px;
+    }
+    
+    .point-label {
+        font-size: 0.55rem;
+        max-width: 60px; /* Wrap text sooner to prevent overlapping */
+    }
+    
+    #tooltip {
+        max-width: 220px;
+        font-size: 0.8rem;
+    }
 }
 
 .point-label {
