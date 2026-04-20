@@ -201,7 +201,7 @@ body {
     text-align: center;
 }
 
-.axis-values-x li { width: calc(var(--chart-size) / 5); }
+.axis-values-x li { width: calc(var(--chart-width) / 5); }
 .axis-subtext { font-size: 0.8rem; font-weight: 500; color: var(--text-secondary); display: block; }
 
 /* Points & Interactivity */

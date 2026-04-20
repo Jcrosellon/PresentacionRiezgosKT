@@ -46,9 +46,10 @@ function renderPoints(data) {
         const score = p.impact_val * p.prob_val;
         const category = getRiskCategory(score);
         
-        // Map 1-5 to GRID dimensions
-        let x = (p.prob_val - 1) / 4 * (GRID_WIDTH - 2 * PADDING) + PADDING;
-        let y = (p.impact_val - 1) / 4 * (GRID_HEIGHT - 2 * PADDING) + PADDING;
+        // Map 1-5 to exact cell centers
+        // A 5x5 grid means center of cell 1 is at 10% of width, and cell 5 is at 90%.
+        let x = ((p.prob_val - 1) / 4) * (0.8 * GRID_WIDTH) + (0.1 * GRID_WIDTH);
+        let y = ((p.impact_val - 1) / 4) * (0.8 * GRID_HEIGHT) + (0.1 * GRID_HEIGHT);
 
         // Apply Deterministic Jitter (based on process name) to avoid exact overlaps
         // This ensures positions are consistent across reloads
