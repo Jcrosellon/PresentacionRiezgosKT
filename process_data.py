@@ -14,17 +14,20 @@ def analyze_risk():
         df = pd.read_excel(excel_file, sheet_name=5)
         df.columns = [str(c).strip().upper() for c in df.columns]
         
-        p_col = next((c for c in df.columns if 'PROCESO' in c), None)
-        h_col = next((c for c in df.columns if 'HALLAZGO' in c), None)
+        # Buscar columna "Sub proceso" primero, luego fallback a "Proceso"
+        sp_col = next((c for c in df.columns if 'SUB' in c and 'PROCESO' in c), None)
+        p_col  = next((c for c in df.columns if c == 'PROCESO' or (c.startswith('PROCESO') and 'SUB' not in c)), None)
+        h_col  = next((c for c in df.columns if 'HALLAZGO' in c), None)
         
-        if p_col and h_col:
+        group_col = sp_col if sp_col else p_col
+        
+        print(f"Columnas disponibles: {list(df.columns)}")
+        print(f"Columna de agrupación utilizada: {group_col}")
+        
+        if group_col and h_col:
             for _, row in df.iterrows():
-                name = str(row[p_col]).strip()
+                name = str(row[group_col]).strip()
                 if not name or name.lower() == 'nan': continue
-                
-                # Simple deduplication without mangling-prone manual replacements
-                if name.lower() == 'inventario': name = 'Inventarios'
-                if name.lower() == 'inventarios': name = 'Inventarios'
                 
                 text = str(row[h_col])
                 all_raw.append({'proceso': name, 'text': text})
@@ -64,6 +67,7 @@ def analyze_risk():
         
         result.append({
             'PROCESO': name,
+            'SUB_PROCESO': name,
             'impact_val': round(impact, 2),
             'prob_val': round(prob, 2),
             'Hallazgo': stats['count']

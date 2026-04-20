@@ -1,62 +1,114 @@
 [
   {
-    "PROCESO": "Servicios estratégicos y convenios",
-    "impact_val": 4.5,
-    "prob_val": 5.0,
-    "Hallazgo": 19
+    "PROCESO": "Visual Spa",
+    "SUB_PROCESO": "Visual Spa",
+    "impact_val": 2.5,
+    "prob_val": 4.47,
+    "Hallazgo": 8
   },
   {
     "PROCESO": "Cirugía",
+    "SUB_PROCESO": "Cirugía",
     "impact_val": 4.5,
-    "prob_val": 4.93,
-    "Hallazgo": 18
-  },
-  {
-    "PROCESO": "Talento Humano",
-    "impact_val": 4.5,
-    "prob_val": 4.59,
-    "Hallazgo": 14
-  },
-  {
-    "PROCESO": "Gestión Documental",
-    "impact_val": 2.5,
-    "prob_val": 2.49,
-    "Hallazgo": 3
-  },
-  {
-    "PROCESO": "Inventarios",
-    "impact_val": 2.5,
-    "prob_val": 3.43,
-    "Hallazgo": 6
-  },
-  {
-    "PROCESO": "SERVICIO AL USUARIO",
-    "impact_val": 2.5,
-    "prob_val": 3.19,
+    "prob_val": 3.68,
     "Hallazgo": 5
   },
   {
-    "PROCESO": "Administrativo y Financiero",
+    "PROCESO": "Formación y Desarrollo",
+    "SUB_PROCESO": "Formación y Desarrollo",
     "impact_val": 4.5,
-    "prob_val": 4.38,
-    "Hallazgo": 12
+    "prob_val": 3.99,
+    "Hallazgo": 6
   },
   {
-    "PROCESO": "GERENCIA VENTAS",
+    "PROCESO": "Gestión Documental",
+    "SUB_PROCESO": "Gestión Documental",
+    "impact_val": 2.5,
+    "prob_val": 2.83,
+    "Hallazgo": 3
+  },
+  {
+    "PROCESO": "Ventas institucionales",
+    "SUB_PROCESO": "Ventas institucionales",
     "impact_val": 4.5,
-    "prob_val": 3.64,
+    "prob_val": 5.0,
+    "Hallazgo": 11
+  },
+  {
+    "PROCESO": "Refractiva",
+    "SUB_PROCESO": "Refractiva",
+    "impact_val": 4.5,
+    "prob_val": 3.99,
+    "Hallazgo": 6
+  },
+  {
+    "PROCESO": "Farmacía",
+    "SUB_PROCESO": "Farmacía",
+    "impact_val": 2.5,
+    "prob_val": 3.68,
+    "Hallazgo": 5
+  },
+  {
+    "PROCESO": "LIO",
+    "SUB_PROCESO": "LIO",
+    "impact_val": 2.5,
+    "prob_val": 2.16,
+    "Hallazgo": 2
+  },
+  {
+    "PROCESO": "inventario",
+    "SUB_PROCESO": "inventario",
+    "impact_val": 2.5,
+    "prob_val": 3.99,
+    "Hallazgo": 6
+  },
+  {
+    "PROCESO": "Recepción en Sedes",
+    "SUB_PROCESO": "Recepción en Sedes",
+    "impact_val": 2.5,
+    "prob_val": 3.68,
+    "Hallazgo": 5
+  },
+  {
+    "PROCESO": "Adecuaciones Físicas",
+    "SUB_PROCESO": "Adecuaciones Físicas",
+    "impact_val": 2.5,
+    "prob_val": 3.99,
+    "Hallazgo": 6
+  },
+  {
+    "PROCESO": "Óptica",
+    "SUB_PROCESO": "Óptica",
+    "impact_val": 4.5,
+    "prob_val": 4.25,
     "Hallazgo": 7
   },
   {
-    "PROCESO": "TI",
+    "PROCESO": "Permisos Agilmed",
+    "SUB_PROCESO": "Permisos Agilmed",
     "impact_val": 4.5,
-    "prob_val": 3.82,
+    "prob_val": 4.47,
     "Hallazgo": 8
   },
   {
     "PROCESO": "Tesorería",
+    "SUB_PROCESO": "Tesorería",
     "impact_val": 4.5,
-    "prob_val": 3.43,
+    "prob_val": 3.99,
     "Hallazgo": 6
+  },
+  {
+    "PROCESO": "Activos fijos",
+    "SUB_PROCESO": "Activos fijos",
+    "impact_val": 4.5,
+    "prob_val": 3.99,
+    "Hallazgo": 6
+  },
+  {
+    "PROCESO": "Nómina",
+    "SUB_PROCESO": "Nómina",
+    "impact_val": 4.5,
+    "prob_val": 4.47,
+    "Hallazgo": 8
   }
 ]

@@ -70,9 +70,9 @@ function renderPoints(data) {
         let xPct = ((p.prob_val - 1) / 4) * 80 + 10;
         let yPct = ((p.impact_val - 1) / 4) * 80 + 10;
 
-        // Apply Deterministic Jitter (based on process name) to avoid exact overlaps
-        const seedX = getSeededRandom(p.PROCESO + "posX");
-        const seedY = getSeededRandom(p.PROCESO + "posY");
+        // Apply Deterministic Jitter (based on sub-process name) to avoid exact overlaps
+        const seedX = getSeededRandom(p.SUB_PROCESO + "posX");
+        const seedY = getSeededRandom(p.SUB_PROCESO + "posY");
         const jitterX = (seedX - 0.5) * 6; // +/- 3%
         const jitterY = (seedY - 0.5) * 6; // +/- 3%
         xPct += jitterX;
@@ -87,7 +87,7 @@ function renderPoints(data) {
         // Label offset with calc formulas for precision
         const label = document.createElement('div');
         label.className = 'point-label';
-        label.innerText = formatProcessName(p.PROCESO);
+        label.innerText = formatProcessName(p.SUB_PROCESO);
         label.style.left = `calc(${xPct}% + 22px)`;
         label.style.bottom = `calc(${yPct}% - 8px)`;
 
@@ -100,7 +100,8 @@ function renderPoints(data) {
         point.onmouseenter = (e) => {
             if (draggedObj) return; // Prevent hover changes if dragging something
             tooltip.style.display = 'block';
-            document.getElementById('tt-title').innerText = p.PROCESO;
+            document.getElementById('tt-title').innerText = p.SUB_PROCESO;
+            document.getElementById('tt-proceso').innerText = p.PROCESO || '';
             document.getElementById('tt-impact').innerText = p.impact_val;
             document.getElementById('tt-prob').innerText = p.prob_val;
             document.getElementById('tt-findings').innerText = p.Hallazgo;
@@ -121,7 +122,8 @@ function renderPoints(data) {
             if (draggedObj) return;
             e.stopPropagation(); // Prevents instant hiding from document click
             tooltip.style.display = 'block';
-            document.getElementById('tt-title').innerText = p.PROCESO;
+            document.getElementById('tt-title').innerText = p.SUB_PROCESO;
+            document.getElementById('tt-proceso').innerText = p.PROCESO || '';
             document.getElementById('tt-impact').innerText = p.impact_val;
             document.getElementById('tt-prob').innerText = p.prob_val;
             document.getElementById('tt-findings').innerText = p.Hallazgo;
