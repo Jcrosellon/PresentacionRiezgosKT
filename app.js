@@ -27,6 +27,17 @@ function getRiskCategory(score) {
     return 'low';
 }
 
+function getSeededRandom(seed) {
+    let hash = 0;
+    for (let i = 0; i < seed.length; i++) {
+        hash = ((hash << 5) - hash) + seed.charCodeAt(i);
+        hash |= 0;
+    }
+    // Return a pseudo-random value between 0 and 1
+    const x = Math.sin(hash) * 10000;
+    return x - Math.floor(x);
+}
+
 function renderPoints(data) {
     container.innerHTML = '';
     allPoints = [];
@@ -39,9 +50,12 @@ function renderPoints(data) {
         let x = (p.prob_val - 1) / 4 * (GRID_WIDTH - 2 * PADDING) + PADDING;
         let y = (p.impact_val - 1) / 4 * (GRID_HEIGHT - 2 * PADDING) + PADDING;
 
-        // Apply Jitter to avoid exact overlaps
-        const jitterX = (Math.random() - 0.5) * 40;
-        const jitterY = (Math.random() - 0.5) * 40;
+        // Apply Deterministic Jitter (based on process name) to avoid exact overlaps
+        // This ensures positions are consistent across reloads
+        const seedX = getSeededRandom(p.PROCESO + "posX");
+        const seedY = getSeededRandom(p.PROCESO + "posY");
+        const jitterX = (seedX - 0.5) * 35;
+        const jitterY = (seedY - 0.5) * 35;
         x += jitterX;
         y += jitterY;
 
