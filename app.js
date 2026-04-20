@@ -70,10 +70,11 @@ function renderPoints(data) {
         const label = document.createElement('div');
         label.className = 'point-label';
         label.innerText = p.PROCESO;
-        label.style.left = `${x + 15}px`;
-        label.style.bottom = `${y - 10}px`;
+        label.style.left = `${x + 22}px`;
+        label.style.bottom = `${y - 8}px`;
 
         // Store for filtering
+
         const pointObj = { el: point, labelEl: label, category, score };
         allPoints.push(pointObj);
 

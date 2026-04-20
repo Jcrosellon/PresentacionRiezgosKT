@@ -216,12 +216,12 @@ body {
 
 .risk-point {
     position: absolute;
-    width: 26px;
-    height: 26px;
+    width: 32px;
+    height: 32px;
     border-radius: 50%;
     transform: translate(-50%, 50%);
-    border: 2px solid white;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.6);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.15);
     pointer-events: auto;
     cursor: pointer;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -244,18 +244,14 @@ body {
 
 .point-label {
     position: absolute;
-    background: rgba(255, 255, 255, 0.95);
-    padding: 2px 6px;
-    border-radius: 6px;
-    font-size: 0.75rem;
-    font-weight: 700;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #111;
     white-space: nowrap;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    color: #1e293b;
-    border: 1px solid #cbd5e1;
     pointer-events: none;
     z-index: 1;
     transition: opacity 0.3s;
+    text-shadow: 0 0 4px rgba(255,255,255,0.8), 0 0 2px rgba(255,255,255,0.8);
 }
 
 .risk-point.filtered + .point-label {
