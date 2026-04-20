@@ -10,6 +10,14 @@ const tooltip = document.getElementById('tooltip');
 let currentFilter = null;
 let allPoints = [];
 
+// Drag functionality state
+let draggedObj = null;
+let dragStartX = 0;
+let dragStartY = 0;
+let dragInitLeft = 0;
+let dragInitBottom = 0;
+
+
 async function init() {
     try {
         const response = await fetch('data.json');
@@ -85,6 +93,7 @@ function renderPoints(data) {
 
         // Tooltip interaction
         point.onmouseenter = (e) => {
+            if (draggedObj) return; // Prevent hover changes if dragging something
             tooltip.style.display = 'block';
             document.getElementById('tt-title').innerText = p.PROCESO;
             document.getElementById('tt-impact').innerText = p.impact_val;
@@ -94,10 +103,37 @@ function renderPoints(data) {
             updateTooltipPos(e);
         };
 
-        point.onmousemove = (e) => updateTooltipPos(e);
-        point.onmouseleave = () => tooltip.style.display = 'none';
+        point.onmousemove = (e) => {
+            if (!draggedObj) updateTooltipPos(e);
+        };
+        
+        point.onmouseleave = () => {
+            if (!draggedObj) tooltip.style.display = 'none';
+        };
+
+        // Drag interaction
+        point.onmousedown = (e) => {
+            e.preventDefault(); // Prevent text selection
+            
+            draggedObj = { pointEl: point, labelEl: label };
+            dragStartX = e.clientX;
+            dragStartY = e.clientY;
+            
+            dragInitLeft = parseFloat(point.style.left);
+            dragInitBottom = parseFloat(point.style.bottom); 
+            
+            point.style.zIndex = 2000;
+            label.style.zIndex = 2001;
+            
+            point.style.transition = 'none';
+            label.style.transition = 'none';
+            
+            // Hide tooltip during drag for clarity
+            tooltip.style.display = 'none';
+        };
 
         container.appendChild(point);
+
         container.appendChild(label);
     });
 }
@@ -138,5 +174,34 @@ function applyFilter() {
         }
     });
 }
+
+// Global Drag Handlers
+document.addEventListener('mousemove', (e) => {
+    if (!draggedObj) return;
+    
+    // Calculate difference
+    const deltaX = e.clientX - dragStartX;
+    const deltaY = e.clientY - dragStartY;
+    
+    // Apply position
+    draggedObj.pointEl.style.left = `${dragInitLeft + deltaX}px`;
+    draggedObj.pointEl.style.bottom = `${dragInitBottom - deltaY}px`; // Subtracted because Y moves screen-down but bottom goes screen-up
+    
+    draggedObj.labelEl.style.left = `${dragInitLeft + deltaX + 22}px`;
+    draggedObj.labelEl.style.bottom = `${dragInitBottom - deltaY - 8}px`;
+});
+
+document.addEventListener('mouseup', () => {
+    if (draggedObj) {
+        draggedObj.pointEl.style.zIndex = '';
+        draggedObj.labelEl.style.zIndex = 1;
+        
+        // Restore CSS transitions
+        draggedObj.pointEl.style.transition = 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)';
+        draggedObj.labelEl.style.transition = 'opacity 0.3s';
+        
+        draggedObj = null;
+    }
+});
 
 init();
