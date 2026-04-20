@@ -17,6 +17,13 @@ let dragStartY = 0;
 let dragInitLeft = 0;
 let dragInitBottom = 0;
 
+// Global Click listener for dismissing tooltips on mobile
+document.addEventListener('click', (e) => {
+    if (!e.target.closest('.risk-point')) {
+        const t = document.getElementById('tooltip');
+        if (t) t.style.display = 'none';
+    }
+});
 
 async function init() {
     try {
@@ -109,6 +116,19 @@ function renderPoints(data) {
             if (!draggedObj) tooltip.style.display = 'none';
         };
 
+        // Mobile touch interaction
+        point.onclick = (e) => {
+            if (draggedObj) return;
+            e.stopPropagation(); // Prevents instant hiding from document click
+            tooltip.style.display = 'block';
+            document.getElementById('tt-title').innerText = p.PROCESO;
+            document.getElementById('tt-impact').innerText = p.impact_val;
+            document.getElementById('tt-prob').innerText = p.prob_val;
+            document.getElementById('tt-findings').innerText = p.Hallazgo;
+            document.getElementById('tt-score').innerText = score.toFixed(1);
+            updateTooltipPos(e);
+        };
+
         // Drag interaction
         point.onmousedown = (e) => {
             e.preventDefault(); // Prevent text selection
@@ -137,8 +157,27 @@ function renderPoints(data) {
 }
 
 function updateTooltipPos(e) {
-    tooltip.style.left = `${e.clientX + 20}px`;
-    tooltip.style.top = `${e.clientY + 20}px`;
+    const tooltip = document.getElementById('tooltip');
+    
+    let clientX = e.clientX;
+    let clientY = e.clientY;
+    
+    // Support Touch Events if triggered
+    if (e.touches && e.touches.length > 0) {
+        clientX = e.touches[0].clientX;
+        clientY = e.touches[0].clientY;
+    }
+    
+    let leftPos = clientX + 15;
+    let topPos = clientY + 15;
+
+    // Boundary check so tooltip doesn't bleed out of right side on Mobile
+    if (leftPos + 240 > window.innerWidth) { // Approx width of tooltip
+        leftPos = clientX - 240; // Flip to left side
+    }
+
+    tooltip.style.left = `${leftPos}px`;
+    tooltip.style.top = `${topPos}px`;
 }
 
 function setupFilters() {

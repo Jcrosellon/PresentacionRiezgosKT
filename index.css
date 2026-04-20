@@ -152,7 +152,7 @@ body {
     position: relative;
     width: var(--chart-width);
     height: var(--chart-height);
-    margin: 0 auto 75px auto; /* Centered horizontally, space reserved below */
+    margin: 30px auto 75px auto; /* Top clearance from legend, centered, bottom reserved Space */
 }
 
 .heatmap-grid {
@@ -326,7 +326,20 @@ body {
     }
     
     .summary-cards {
-        grid-template-columns: 1fr; /* Fully stacked buttons on tiny screens */
+        grid-template-columns: repeat(2, 1fr) !important; /* Force 2 horizontal buttons */
+        gap: 0.5rem;
+    }
+    
+    .summary-card {
+        padding: 0.5rem;
+    }
+    
+    .card-title {
+        font-size: 0.55rem;
+    }
+    
+    .card-desc {
+        font-size: 0.45rem;
     }
     
     /* Shrink the text sizes of the grid so they fit */
@@ -338,7 +351,10 @@ body {
     }
     
     .heatmap-wrapper {
-        margin-bottom: 60px; /* Tighter lower fit */
+        margin: 40px 10px 80px 50px !important; /* Left 50px guards Impacto label, right 10px breathing */
+        width: calc(100% - 60px) !important; /* Width is exactly parent bounds minus margins */
+        max-width: none; 
+        height: 220px !important; 
     }
     
     .x-axis-label {
@@ -348,15 +364,56 @@ body {
     .axis-values-x {
         bottom: -25px;
     }
+
+    /* Scale points down for crowded mobile grid */
+    .risk-point {
+        width: 22px;
+        height: 22px;
+    }
     
     .point-label {
         font-size: 0.55rem;
-        max-width: 60px; /* Wrap text sooner to prevent overlapping */
+        max-width: 60px; 
     }
     
     #tooltip {
         max-width: 220px;
         font-size: 0.8rem;
+    }
+    
+    /* Restore footer to Document flow to prevent floating issues */
+    .developer-footer {
+        position: relative;
+        transform: none;
+        left: 0;
+        width: 100%;
+        margin-top: 15px;
+        padding-bottom: 15px;
+        bottom: auto;
+    }
+}
+
+/* Height-based constraints for landscape phones & small laptop screens */
+@media screen and (max-height: 650px) {
+    body {
+        height: auto;
+        min-height: 100vh;
+        overflow-y: auto;
+    }
+    .container {
+        height: auto;
+        max-height: none;
+        margin: 20px auto;
+        padding-bottom: 40px; /* Room for probability label */
+    }
+    .developer-footer {
+        position: relative;
+        bottom: auto;
+        transform: none;
+        left: 0;
+        width: 100%;
+        margin-top: 30px;
+        padding-bottom: 15px;
     }
 }
 
