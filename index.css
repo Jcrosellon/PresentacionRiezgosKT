@@ -55,7 +55,8 @@ body {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 0.8rem;
-    margin-bottom: 1rem;
+    margin: 0 auto 1.5rem auto;
+    max-width: 650px; /* Forced to be approximately half width */
 }
 
 .summary-card {
@@ -91,8 +92,8 @@ body {
 .summary-card.low { background: var(--low); color: white; }
 .summary-card.all { background: #e2e8f0; color: #1e293b; }
 
-.card-title { font-weight: 800; font-size: 0.7rem; text-transform: uppercase; }
-.card-desc { font-size: 0.6rem; opacity: 0.8; line-height: 1; }
+.card-title { font-weight: 800; font-size: 0.65rem; text-transform: uppercase; }
+.card-desc { font-size: 0.55rem; opacity: 0.8; line-height: 1.2; }
 
 /* Main Content Layout */
 .main-content {
