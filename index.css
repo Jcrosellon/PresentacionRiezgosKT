@@ -150,18 +150,21 @@ body {
 /* Heatmap Grid */
 .heatmap-wrapper {
     position: relative;
-    padding: 10px 20px 65px 70px;
-    margin-bottom: 0;
+    width: var(--chart-width);
+    height: var(--chart-height);
+    margin: 0 auto 75px auto; /* Centered horizontally, space reserved below */
 }
 
 .heatmap-grid {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: repeat(5, 1fr);
-    width: var(--chart-width);
-    height: var(--chart-height);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     border: 2px solid #0f172a;
-    position: relative;
     background: radial-gradient(circle at bottom left, #86efac 0%, #86efac 45%, #fde047 75%, #f87171 100%);
     box-shadow: 0 10px 20px rgba(0,0,0,0.06);
 }
@@ -181,22 +184,25 @@ body {
 }
 
 .y-axis-label {
-    transform: rotate(-90deg);
-    left: -60px;  /* Pushed further out to avoid overlaying numbers */
     top: 50%;
+    left: -70px;
+    transform: translateY(-50%) rotate(-90deg);
 }
 
 .x-axis-label {
-    bottom: 5px; /* Anchors solidly inside the 65px padding reservation */
+    top: auto;
+    bottom: -65px; /* Sits precisely under the values */
     left: 50%;
     transform: translateX(-50%);
 }
 
 .axis-values-y {
     position: absolute;
-    left: -20px;  /* Pulled closer to the grid */
+    right: 100%; /* Anchor to left edge exactly */
+    margin-right: 12px; /* Breathing room against the grid line */
+    top: 0;
     height: 100%;
-    top: 0;    display: flex;
+    display: flex;
     flex-direction: column-reverse;
     justify-content: space-between;
     padding: 0;
@@ -206,11 +212,18 @@ body {
     font-size: 0.85rem;
 }
 
+.axis-values-y li {
+    height: 20%; /* Exact chunk of the 5x5 grid row */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centers the 1 and Baja safely in the middle of the cell */
+    align-items: flex-end; /* Snaps text exactly flush right */
+}
+
 .axis-values-x {
     position: absolute;
-    top: 100%; /* Anchor right below the grid */
+    bottom: -35px; /* Sits exactly below the grid lines */
     left: 0;
-    margin-top: 5px; 
     width: 100%;
     display: flex;
     justify-content: space-between;
