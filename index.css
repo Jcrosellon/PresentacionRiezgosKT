@@ -385,11 +385,12 @@ body {
     .developer-footer {
         position: relative;
         transform: none;
-        left: 0;
+        left: auto;
         width: 100%;
-        margin-top: 15px;
-        padding-bottom: 15px;
+        margin-top: 25px;
+        padding-bottom: 25px;
         bottom: auto;
+        text-align: center;
     }
 }
 
@@ -410,10 +411,11 @@ body {
         position: relative;
         bottom: auto;
         transform: none;
-        left: 0;
+        left: auto;
         width: 100%;
-        margin-top: 30px;
-        padding-bottom: 15px;
+        margin-top: 35px;
+        padding-bottom: 25px;
+        text-align: center;
     }
 }
 
