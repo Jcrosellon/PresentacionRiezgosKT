@@ -1,114 +1,275 @@
 [
   {
-    "PROCESO": "Visual Spa",
-    "SUB_PROCESO": "Visual Spa",
+    "PROCESO": "Activos fijos",
+    "SUB_PROCESO": "Activos fijos",
+    "impact_val": 4.5,
+    "prob_val": 2.81,
+    "Hallazgo": 6
+  },
+  {
+    "PROCESO": "Alianzas estratégicas 2023",
+    "SUB_PROCESO": "Alianzas estratégicas 2023",
     "impact_val": 2.5,
-    "prob_val": 4.47,
+    "prob_val": 2.4,
+    "Hallazgo": 4
+  },
+  {
+    "PROCESO": "Aumentos Paycard y Salarios año",
+    "SUB_PROCESO": "Aumentos Paycard y Salarios año",
+    "impact_val": 2.5,
+    "prob_val": 2.11,
+    "Hallazgo": 3
+  },
+  {
+    "PROCESO": "Beneficios empleados",
+    "SUB_PROCESO": "Beneficios empleados",
+    "impact_val": 2.5,
+    "prob_val": 3.1,
     "Hallazgo": 8
+  },
+  {
+    "PROCESO": "Cartera",
+    "SUB_PROCESO": "Cartera",
+    "impact_val": 2.5,
+    "prob_val": 3.79,
+    "Hallazgo": 16
   },
   {
     "PROCESO": "Cirugía",
     "SUB_PROCESO": "Cirugía",
+    "impact_val": 2.5,
+    "prob_val": 2.4,
+    "Hallazgo": 4
+  },
+  {
+    "PROCESO": "Compras",
+    "SUB_PROCESO": "Compras",
     "impact_val": 4.5,
-    "prob_val": 3.68,
+    "prob_val": 4.24,
+    "Hallazgo": 25
+  },
+  {
+    "PROCESO": "Compras 2023",
+    "SUB_PROCESO": "Compras 2023",
+    "impact_val": 2.5,
+    "prob_val": 2.62,
+    "Hallazgo": 5
+  },
+  {
+    "PROCESO": "Comunciaciones Internas",
+    "SUB_PROCESO": "Comunciaciones Internas",
+    "impact_val": 2.5,
+    "prob_val": 2.62,
+    "Hallazgo": 5
+  },
+  {
+    "PROCESO": "Comunicaciones Externas",
+    "SUB_PROCESO": "Comunicaciones Externas",
+    "impact_val": 2.5,
+    "prob_val": 2.96,
+    "Hallazgo": 7
+  },
+  {
+    "PROCESO": "Cuentas Médicas",
+    "SUB_PROCESO": "Cuentas Médicas",
+    "impact_val": 2.5,
+    "prob_val": 3.42,
+    "Hallazgo": 11
+  },
+  {
+    "PROCESO": "Descuentos",
+    "SUB_PROCESO": "Descuentos",
+    "impact_val": 4.5,
+    "prob_val": 3.1,
+    "Hallazgo": 8
+  },
+  {
+    "PROCESO": "Farmacía",
+    "SUB_PROCESO": "Farmacía",
+    "impact_val": 2.5,
+    "prob_val": 2.62,
     "Hallazgo": 5
   },
   {
     "PROCESO": "Formación y Desarrollo",
     "SUB_PROCESO": "Formación y Desarrollo",
     "impact_val": 4.5,
-    "prob_val": 3.99,
+    "prob_val": 2.81,
     "Hallazgo": 6
   },
   {
-    "PROCESO": "Gestión Documental",
-    "SUB_PROCESO": "Gestión Documental",
+    "PROCESO": "Habilitación 2024",
+    "SUB_PROCESO": "Habilitación 2024",
     "impact_val": 2.5,
-    "prob_val": 2.83,
+    "prob_val": 2.11,
     "Hallazgo": 3
   },
   {
-    "PROCESO": "Ventas institucionales",
-    "SUB_PROCESO": "Ventas institucionales",
-    "impact_val": 4.5,
-    "prob_val": 5.0,
-    "Hallazgo": 11
-  },
-  {
-    "PROCESO": "Refractiva",
-    "SUB_PROCESO": "Refractiva",
-    "impact_val": 4.5,
-    "prob_val": 3.99,
-    "Hallazgo": 6
-  },
-  {
-    "PROCESO": "Farmacía",
-    "SUB_PROCESO": "Farmacía",
+    "PROCESO": "Honorarios",
+    "SUB_PROCESO": "Honorarios",
     "impact_val": 2.5,
-    "prob_val": 3.68,
+    "prob_val": 2.62,
+    "Hallazgo": 5
+  },
+  {
+    "PROCESO": "Inventario",
+    "SUB_PROCESO": "Inventario",
+    "impact_val": 4.5,
+    "prob_val": 4.94,
+    "Hallazgo": 50
+  },
+  {
+    "PROCESO": "Inventario 2023",
+    "SUB_PROCESO": "Inventario 2023",
+    "impact_val": 2.5,
+    "prob_val": 2.62,
     "Hallazgo": 5
   },
   {
     "PROCESO": "LIO",
     "SUB_PROCESO": "LIO",
     "impact_val": 2.5,
-    "prob_val": 2.16,
+    "prob_val": 1.7,
     "Hallazgo": 2
   },
   {
-    "PROCESO": "inventario",
-    "SUB_PROCESO": "inventario",
+    "PROCESO": "Mejoramiento",
+    "SUB_PROCESO": "Mejoramiento",
     "impact_val": 2.5,
-    "prob_val": 3.99,
-    "Hallazgo": 6
-  },
-  {
-    "PROCESO": "Recepción en Sedes",
-    "SUB_PROCESO": "Recepción en Sedes",
-    "impact_val": 2.5,
-    "prob_val": 3.68,
-    "Hallazgo": 5
-  },
-  {
-    "PROCESO": "Adecuaciones Físicas",
-    "SUB_PROCESO": "Adecuaciones Físicas",
-    "impact_val": 2.5,
-    "prob_val": 3.99,
-    "Hallazgo": 6
-  },
-  {
-    "PROCESO": "Óptica",
-    "SUB_PROCESO": "Óptica",
-    "impact_val": 4.5,
-    "prob_val": 4.25,
+    "prob_val": 2.96,
     "Hallazgo": 7
-  },
-  {
-    "PROCESO": "Permisos Agilmed",
-    "SUB_PROCESO": "Permisos Agilmed",
-    "impact_val": 4.5,
-    "prob_val": 4.47,
-    "Hallazgo": 8
-  },
-  {
-    "PROCESO": "Tesorería",
-    "SUB_PROCESO": "Tesorería",
-    "impact_val": 4.5,
-    "prob_val": 3.99,
-    "Hallazgo": 6
-  },
-  {
-    "PROCESO": "Activos fijos",
-    "SUB_PROCESO": "Activos fijos",
-    "impact_val": 4.5,
-    "prob_val": 3.99,
-    "Hallazgo": 6
   },
   {
     "PROCESO": "Nómina",
     "SUB_PROCESO": "Nómina",
     "impact_val": 4.5,
-    "prob_val": 4.47,
-    "Hallazgo": 8
+    "prob_val": 5.0,
+    "Hallazgo": 53
+  },
+  {
+    "PROCESO": "Prestación del servicio",
+    "SUB_PROCESO": "Prestación del servicio",
+    "impact_val": 2.5,
+    "prob_val": 2.81,
+    "Hallazgo": 6
+  },
+  {
+    "PROCESO": "Protección de Datos Personales",
+    "SUB_PROCESO": "Protección de Datos Personales",
+    "impact_val": 2.5,
+    "prob_val": 1.7,
+    "Hallazgo": 2
+  },
+  {
+    "PROCESO": "Refractiva 2023",
+    "SUB_PROCESO": "Refractiva 2023",
+    "impact_val": 4.5,
+    "prob_val": 3.21,
+    "Hallazgo": 9
+  },
+  {
+    "PROCESO": "Salas de cirugía",
+    "SUB_PROCESO": "Salas de cirugía",
+    "impact_val": 2.5,
+    "prob_val": 2.11,
+    "Hallazgo": 3
+  },
+  {
+    "PROCESO": "SARLAFT",
+    "SUB_PROCESO": "SARLAFT",
+    "impact_val": 4.5,
+    "prob_val": 4.61,
+    "Hallazgo": 36
+  },
+  {
+    "PROCESO": "SARLAFT-2do semestre 2023",
+    "SUB_PROCESO": "SARLAFT-2do semestre 2023",
+    "impact_val": 2.5,
+    "prob_val": 2.4,
+    "Hallazgo": 4
+  },
+  {
+    "PROCESO": "Sedes",
+    "SUB_PROCESO": "Sedes",
+    "impact_val": 2.5,
+    "prob_val": 4.72,
+    "Hallazgo": 40
+  },
+  {
+    "PROCESO": "Seguridad y Salud en el Trabajo",
+    "SUB_PROCESO": "Seguridad y Salud en el Trabajo",
+    "impact_val": 2.5,
+    "prob_val": 2.62,
+    "Hallazgo": 5
+  },
+  {
+    "PROCESO": "Solución Visual",
+    "SUB_PROCESO": "Solución Visual",
+    "impact_val": 4.5,
+    "prob_val": 4.16,
+    "Hallazgo": 23
+  },
+  {
+    "PROCESO": "Tecnología de la información",
+    "SUB_PROCESO": "Tecnología de la información",
+    "impact_val": 2.5,
+    "prob_val": 2.62,
+    "Hallazgo": 5
+  },
+  {
+    "PROCESO": "Tesorería",
+    "SUB_PROCESO": "Tesorería",
+    "impact_val": 2.5,
+    "prob_val": 4.11,
+    "Hallazgo": 22
+  },
+  {
+    "PROCESO": "Ventas institucionales 2023",
+    "SUB_PROCESO": "Ventas institucionales 2023",
+    "impact_val": 2.5,
+    "prob_val": 1.7,
+    "Hallazgo": 2
+  },
+  {
+    "PROCESO": "Visual Spa 2023",
+    "SUB_PROCESO": "Visual Spa 2023",
+    "impact_val": 2.5,
+    "prob_val": 2.96,
+    "Hallazgo": 7
+  },
+  {
+    "PROCESO": "Gestión Documental",
+    "SUB_PROCESO": "Gestión Documental",
+    "impact_val": 2.5,
+    "prob_val": 2.11,
+    "Hallazgo": 3
+  },
+  {
+    "PROCESO": "Talento Humano",
+    "SUB_PROCESO": "Talento Humano",
+    "impact_val": 4.5,
+    "prob_val": 2.81,
+    "Hallazgo": 6
+  },
+  {
+    "PROCESO": "Cultura y Valores",
+    "SUB_PROCESO": "Cultura y Valores",
+    "impact_val": 2.5,
+    "prob_val": 1.7,
+    "Hallazgo": 2
+  },
+  {
+    "PROCESO": "TI",
+    "SUB_PROCESO": "TI",
+    "impact_val": 2.5,
+    "prob_val": 1.0,
+    "Hallazgo": 1
+  },
+  {
+    "PROCESO": "Recepción en Sedes",
+    "SUB_PROCESO": "Recepción en Sedes",
+    "impact_val": 2.5,
+    "prob_val": 2.62,
+    "Hallazgo": 5
   }
 ]
