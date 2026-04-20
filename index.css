@@ -187,7 +187,7 @@ body {
 }
 
 .x-axis-label {
-    bottom: -45px; /* Raised closer to the numbers */
+    bottom: 0px; /* Snug against the bottom inside edge of the wrapper padding */
     left: 50%;
     transform: translateX(-50%);
 }
