@@ -90,7 +90,11 @@ body {
 .summary-card.critical { background: var(--critical); color: white; }
 .summary-card.alert { background: var(--alert); color: white; }
 .summary-card.low { background: var(--low); color: white; }
-.summary-card.all { background: #e2e8f0; color: #1e293b; }
+.summary-card.all { 
+    background: linear-gradient(to right, #86efac 0%, #fde047 50%, #f87171 100%); 
+    color: #0f172a;
+    text-shadow: 0 0 4px rgba(255, 255, 255, 0.8);
+}
 
 .card-title { font-weight: 800; font-size: 0.65rem; text-transform: uppercase; }
 .card-desc { font-size: 0.55rem; opacity: 0.8; line-height: 1.2; }
