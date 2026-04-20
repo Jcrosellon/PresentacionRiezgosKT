@@ -281,3 +281,19 @@ body {
 .tooltip-title { font-weight: 800; color: #0f172a; margin-bottom: 0.5rem; display: block; }
 .tooltip-stat { font-size: 0.9rem; color: var(--text-secondary); display: flex; justify-content: space-between; }
 .tooltip-stat b { color: var(--text-primary); }
+
+/* Developer Footer */
+.developer-footer {
+    position: fixed;
+    bottom: 12px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    letter-spacing: 0.05em;
+    pointer-events: none;
+    opacity: 0.7;
+    z-index: 10;
+}
