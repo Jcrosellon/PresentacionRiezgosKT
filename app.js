@@ -59,32 +59,30 @@ function renderPoints(data) {
         const score = p.impact_val * p.prob_val;
         const category = getRiskCategory(score);
         
-        // Map 1-5 to exact cell centers
-        // A 5x5 grid means center of cell 1 is at 10% of width, and cell 5 is at 90%.
-        let x = ((p.prob_val - 1) / 4) * (0.8 * GRID_WIDTH) + (0.1 * GRID_WIDTH);
-        let y = ((p.impact_val - 1) / 4) * (0.8 * GRID_HEIGHT) + (0.1 * GRID_HEIGHT);
+        // Map 1-5 to exact cell centers using Percentages (0% to 100%)
+        let xPct = ((p.prob_val - 1) / 4) * 80 + 10;
+        let yPct = ((p.impact_val - 1) / 4) * 80 + 10;
 
         // Apply Deterministic Jitter (based on process name) to avoid exact overlaps
-        // This ensures positions are consistent across reloads
         const seedX = getSeededRandom(p.PROCESO + "posX");
         const seedY = getSeededRandom(p.PROCESO + "posY");
-        const jitterX = (seedX - 0.5) * 35;
-        const jitterY = (seedY - 0.5) * 35;
-        x += jitterX;
-        y += jitterY;
+        const jitterX = (seedX - 0.5) * 6; // +/- 3%
+        const jitterY = (seedY - 0.5) * 6; // +/- 3%
+        xPct += jitterX;
+        yPct += jitterY;
 
         // Visual point
         const point = document.createElement('div');
         point.className = `risk-point ${category === 'high' ? 'critical' : category === 'med' ? 'alert' : 'low'}`;
-        point.style.left = `${x}px`;
-        point.style.bottom = `${y}px`; // Uses bottom because y-axis starts from bottom
+        point.style.left = `${xPct}%`;
+        point.style.bottom = `${yPct}%`;
 
-        // Label
+        // Label offset with calc formulas for precision
         const label = document.createElement('div');
         label.className = 'point-label';
         label.innerText = formatProcessName(p.PROCESO);
-        label.style.left = `${x + 22}px`;
-        label.style.bottom = `${y - 8}px`;
+        label.style.left = `calc(${xPct}% + 22px)`;
+        label.style.bottom = `calc(${yPct}% - 8px)`;
 
         // Store for filtering
 
@@ -119,7 +117,7 @@ function renderPoints(data) {
             dragStartX = e.clientX;
             dragStartY = e.clientY;
             
-            dragInitLeft = parseFloat(point.style.left);
+            dragInitLeft = parseFloat(point.style.left); // stores the numeric %
             dragInitBottom = parseFloat(point.style.bottom); 
             
             point.style.zIndex = 2000;
@@ -179,16 +177,18 @@ function applyFilter() {
 document.addEventListener('mousemove', (e) => {
     if (!draggedObj) return;
     
-    // Calculate difference
-    const deltaX = e.clientX - dragStartX;
-    const deltaY = e.clientY - dragStartY;
+    const gridRect = document.getElementById('grid').getBoundingClientRect();
     
-    // Apply position
-    draggedObj.pointEl.style.left = `${dragInitLeft + deltaX}px`;
-    draggedObj.pointEl.style.bottom = `${dragInitBottom - deltaY}px`; // Subtracted because Y moves screen-down but bottom goes screen-up
+    // Calculate difference in percentages relative to the grid width/height
+    const deltaX = (e.clientX - dragStartX) / gridRect.width * 100;
+    const deltaY = (e.clientY - dragStartY) / gridRect.height * 100;
     
-    draggedObj.labelEl.style.left = `${dragInitLeft + deltaX + 22}px`;
-    draggedObj.labelEl.style.bottom = `${dragInitBottom - deltaY - 8}px`;
+    // Apply position using % constraint
+    draggedObj.pointEl.style.left = `${dragInitLeft + deltaX}%`;
+    draggedObj.pointEl.style.bottom = `${dragInitBottom - deltaY}%`;
+    
+    draggedObj.labelEl.style.left = `calc(${dragInitLeft + deltaX}% + 22px)`;
+    draggedObj.labelEl.style.bottom = `calc(${dragInitBottom - deltaY}% - 8px)`;
 });
 
 document.addEventListener('mouseup', () => {
