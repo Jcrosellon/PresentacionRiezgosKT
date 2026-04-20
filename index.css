@@ -148,7 +148,7 @@ body {
     height: var(--chart-height);
     border: 2px solid #0f172a;
     position: relative;
-    background: linear-gradient(to top right, #86efac 0%, #fde047 40%, #fb923c 70%, #f87171 100%);
+    background: radial-gradient(circle at bottom left, #86efac 0%, #86efac 45%, #fde047 75%, #f87171 100%);
     box-shadow: 0 10px 20px rgba(0,0,0,0.06);
 }
 
