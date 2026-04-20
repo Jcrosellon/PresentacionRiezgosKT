@@ -290,11 +290,10 @@ body {
     transform: translateX(-50%);
     text-align: center;
     white-space: nowrap;
-    font-size: 0.75rem;
-    font-weight: 600;
-    color: var(--text-secondary);
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #0f172a;
     letter-spacing: 0.05em;
     pointer-events: none;
-    opacity: 0.7;
-    z-index: 10;
+    z-index: 9999;
 }
