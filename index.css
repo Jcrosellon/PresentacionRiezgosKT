@@ -285,10 +285,11 @@ body {
 /* Developer Footer */
 .developer-footer {
     position: fixed;
-    bottom: 12px;
-    left: 0;
-    width: 100%;
+    bottom: 4px;
+    left: 50%;
+    transform: translateX(-50%);
     text-align: center;
+    white-space: nowrap;
     font-size: 0.75rem;
     font-weight: 600;
     color: var(--text-secondary);
